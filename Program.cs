@@ -11,16 +11,15 @@ namespace An_ongoing_project
     {
         static void Main(string[] args)
         {
-            List<Terrorist.weapon> weapons = new List<Terrorist.weapon>
-        {
-            Terrorist.weapon.ak47,
-            Terrorist.weapon.knife,
-            Terrorist.weapon.ak47
-        };
+            Terrorist terrorist = new Terrorist("Abu Jihad", 5,
+                new List<weapon> { weapon.gun, weapon.knife}, "car");
+            Terrorist terrorist2 = new Terrorist("Muhamad", 4,
+                new List<weapon> { weapon.ak47, weapon.m16 }, "building");
 
-            Terrorist terrorist = new Terrorist("Abu Jihad", 5, true, weapons);
             Hamas.SetNewTerrorist(terrorist);
-            Console.WriteLine(Aman.GetTerroristGrade(terrorist));
+            Hamas.SetNewTerrorist(terrorist2);
+
+            Console.WriteLine(Aman.GetTerroristHighestScore().GetTerroristName());
         }
     }
 }

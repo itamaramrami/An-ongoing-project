@@ -11,7 +11,7 @@ namespace An_ongoing_project
     {
         private static List<Terrorist> allTerrorist = Hamas.GetHamasTerrorists();
 
-        public static int GetTerroristGrade(Terrorist terrorist)
+        private static int GetTerroristGrade(Terrorist terrorist)
         {
             int weaponRank = 0;
             foreach (weapon weapon in terrorist.GetTerroristWeapons())
@@ -36,6 +36,24 @@ namespace An_ongoing_project
                 }
             }
             return weaponRank * terrorist.GetTerroristRank();
+        }
+
+        public static Terrorist GetTerroristHighestScore()
+        {
+            int mostScore = 0;
+            Terrorist terroristHighestScore = allTerrorist[0];
+            foreach (Terrorist terrorist in allTerrorist)
+            {
+                if (terrorist.IsTerroristAlive())
+                {
+                    if (GetTerroristGrade(terrorist) > mostScore)
+                    {
+                        mostScore = GetTerroristGrade(terrorist);
+                        terroristHighestScore = terrorist;
+                    }
+                }
+            }
+            return terroristHighestScore;
         }
     }
 }
