@@ -24,6 +24,11 @@ namespace An_ongoing_project
         {
             return NumberOfBombs > 0 && FuelQuantity > 0;
         }
+        public void bombing()
+        {
+            this.NumberOfBombs -= 1;
+            this.FuelQuantity -= 20;
+        }
 
 
 
@@ -34,6 +39,8 @@ namespace An_ongoing_project
 
         public f16(): base("F16", new List<string> { "Buildings" }, 8, 100) { }
         
+
+
     }
     internal class drone : Weapon
     {
