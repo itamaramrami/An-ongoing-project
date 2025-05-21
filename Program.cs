@@ -11,6 +11,7 @@ namespace An_ongoing_project
         static void Main(string[] args)
         {
             Console.WriteLine("itamar");
+            Console.WriteLine("haim");
         }
     }
 }
