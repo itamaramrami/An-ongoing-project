@@ -1,28 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace An_ongoing_project
 {
     class Terrorist
     {
-        public enum weapon
-        {
-            knife,
-            gun,
-            ak47,
-            m16
-        }
-
-        public enum location
-        {
-            Building,
-            Vehicle,
-            OpenSpace
-        }
-
         private static int IdCounter = 1;
         private int Id;
         private string TerroristName;
@@ -41,6 +23,7 @@ namespace An_ongoing_project
             if (IsTerroristAlive())
             {
                 this.IsAlive = false;
+                Console.WriteLine($"Terrorist {this.GetTerroristName()} ID: {this.GetId()} killed successfully!");
             }
             else
             {
@@ -59,6 +42,8 @@ namespace An_ongoing_project
             this.TerroristLocation = location;
             this.IsAlive = isAlive;
             this.TerroristWeapons = terroristWeapons;
+
+            Hamas.SetNewTerrorist(this);
         }
     }
 }
