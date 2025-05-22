@@ -41,19 +41,41 @@ namespace An_ongoing_project
         public static Terrorist GetTerroristHighestScore()
         {
             int mostScore = 0;
-            Terrorist terroristHighestScore = allTerrorist[0];
+            Terrorist terroristHighestScore = null;
+
             foreach (Terrorist terrorist in allTerrorist)
             {
                 if (terrorist.IsTerroristAlive())
                 {
-                    if (GetTerroristGrade(terrorist) > mostScore)
+                    int grade = GetTerroristGrade(terrorist);
+                    if (grade > mostScore)
                     {
-                        mostScore = GetTerroristGrade(terrorist);
+                        mostScore = grade;
                         terroristHighestScore = terrorist;
                     }
                 }
             }
+
+            if (terroristHighestScore == null)
+            {
+                Console.WriteLine("There not an alive terrorist!");
+                return null;
+            }
+
             return terroristHighestScore;
+        }
+        public static List<Terrorist> GetHamasTerrorists() => allTerrorist;
+
+        public static void PrintHamasStatus()
+        {
+            Console.WriteLine("=== All Hamas Terrorists ===\n");
+
+            foreach (Terrorist terrorist in Aman.GetHamasTerrorists())
+            {
+                Console.WriteLine($"ID: {terrorist.GetId()}, Name: {terrorist.GetTerroristName()}, Rank: {terrorist.GetTerroristRank()}, Alive: {terrorist.IsTerroristAlive()}, Location: {terrorist.GetLocation()}");
+                Console.WriteLine("Weapons: " + string.Join(", ", terrorist.GetTerroristWeapons()));
+                Console.WriteLine(new string('-', 50));
+            }
         }
     }
 }
