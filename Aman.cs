@@ -72,7 +72,8 @@ namespace An_ongoing_project
 
             foreach (Terrorist terrorist in Aman.GetHamasTerrorists())
             {
-                Console.WriteLine($"ID: {terrorist.GetId()}, Name: {terrorist.GetTerroristName()}, Rank: {terrorist.GetTerroristRank()}, Alive: {terrorist.IsTerroristAlive()}, Location: {terrorist.GetLocation()}");
+                string isAlive = terrorist.IsTerroristAlive() ? "Yes": "No";
+                Console.WriteLine($"ID: {terrorist.GetId()}, Name: {terrorist.GetTerroristName()}, Rank: {terrorist.GetTerroristRank()}, Alive: {isAlive}, Location: {terrorist.GetLocation()}");
                 Console.WriteLine("Weapons: " + string.Join(", ", terrorist.GetTerroristWeapons()));
                 Console.WriteLine(new string('-', 50));
             }

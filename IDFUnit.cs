@@ -27,15 +27,14 @@ namespace An_ongoing_project
             this.DateOfEstablishment = DateOfEstablishment;
             this.WeaponsArsenal = WeaponsArsenal;
         }
-        public void attack()
+        public void attack(Terrorist terroristToKill)
         {
-            Terrorist heighstTerrorist = Aman.GetTerroristHighestScore();
-            if (heighstTerrorist.GetLocation() == location.Building)
+            if (terroristToKill.GetLocation() == location.Building)
             {
                if (WeaponsArsenal[0].IsAvailable())
                 {
                     WeaponsArsenal[0].bombing();
-                    heighstTerrorist.KillTerrorist();
+                    terroristToKill.KillTerrorist();
                     Console.WriteLine("The attack was carried out successfully.");
                 }
                 else
@@ -44,12 +43,12 @@ namespace An_ongoing_project
                 }
 
             }
-            if (heighstTerrorist.GetLocation() == location.Vehicle)
+            if (terroristToKill.GetLocation() == location.Vehicle)
             {
                if (WeaponsArsenal[1].IsAvailable())
                 {
                     WeaponsArsenal[1].bombing();
-                    heighstTerrorist.KillTerrorist();
+                    terroristToKill.KillTerrorist();
 
                     Console.WriteLine("The attack was carried out successfully.");
                 }
@@ -59,12 +58,12 @@ namespace An_ongoing_project
                 }
 
             }
-            if (heighstTerrorist.GetLocation() == location.OpenSpace)
+            if (terroristToKill.GetLocation() == location.OpenSpace)
             {
                if (WeaponsArsenal[2].IsAvailable())
                 {
                     WeaponsArsenal[2].bombing();
-                    heighstTerrorist.KillTerrorist();
+                    terroristToKill.KillTerrorist();
 
                     Console.WriteLine("The attack was carried out successfully.");
                 }

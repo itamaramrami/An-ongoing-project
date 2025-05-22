@@ -8,9 +8,7 @@ namespace An_ongoing_project
     {
         static void Main(string[] args)
         {
-
             f16 m1 = new f16();
-           
             drone d1 = new drone();
             artillery a1 = new artillery();
           
@@ -24,10 +22,13 @@ namespace An_ongoing_project
 
             Aman.PrintHamasStatus();
             for (int i = 0; i < Aman.GetHamasTerrorists().Count + 1; i ++) {
-                helHiam.attack();
+                Terrorist heighestTerrorist = Aman.GetTerroristHighestScore();
+                if (heighestTerrorist != null)
+                {
+                    helHiam.attack(heighestTerrorist);
+                }
             }
             Aman.PrintHamasStatus();
         }
     }
-    
 }
