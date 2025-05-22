@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static An_ongoing_project.Terrorist;
 
 namespace An_ongoing_project
 {
     public interface ITypesOfAttack {
         string Name { get; set; }
-        List<string> EffectiveAgainst { get; set; }
         int NumberOfBombs { get; set; }
         int FuelQuantity { get; set; }
         
         bool IsAvailable();
-
+        location EffectiveAgainst { get; set; }
     }
     internal class IDFUnit
     {
