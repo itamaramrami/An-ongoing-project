@@ -16,6 +16,7 @@ namespace An_ongoing_project
             m16
         }
 
+        private static int IdCounter = 1;
         private int Id;
         private string TerroristName;
         private int TerroristRanke;
@@ -40,10 +41,12 @@ namespace An_ongoing_project
             }
         }
         public List<weapon> GetTerroristWeapons() => this.TerroristWeapons;
+        private static int GenerateNewId() => IdCounter++;
 
 
         public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons,string location, bool isAlive = true)
         {
+            this.Id = GenerateNewId();
             this.TerroristName = terroristName;
             this.TerroristRanke = terroristRanke;
             this.Location = location;
