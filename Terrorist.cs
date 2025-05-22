@@ -16,19 +16,26 @@ namespace An_ongoing_project
             m16
         }
 
+        public enum location
+        {
+            Building,
+            Vehicle,
+            OpenSpace
+        }
+
         private static int IdCounter = 1;
         private int Id;
         private string TerroristName;
         private int TerroristRanke;
         private bool IsAlive;
-        private string Location;
         private List<weapon> TerroristWeapons;
+        private location TerroristLocation;
 
         public string GetTerroristName() => this.TerroristName;
         public int GetTerroristRank() => this.TerroristRanke;
         public bool IsTerroristAlive() => this.IsAlive;
         public int GetId() => this.Id;
-        public string GetLocation() => this.Location;
+        public location GetLocation() => this.TerroristLocation;
         public void KillTerrorist()
         {
             if (IsTerroristAlive())
@@ -44,12 +51,12 @@ namespace An_ongoing_project
         private static int GenerateNewId() => IdCounter++;
 
 
-        public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons,string location, bool isAlive = true)
+        public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons,location location, bool isAlive = true)
         {
             this.Id = GenerateNewId();
             this.TerroristName = terroristName;
             this.TerroristRanke = terroristRanke;
-            this.Location = location;
+            this.TerroristLocation = location;
             this.IsAlive = isAlive;
             this.TerroristWeapons = terroristWeapons;
         }
