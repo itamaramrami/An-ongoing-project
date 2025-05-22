@@ -8,21 +8,6 @@ namespace An_ongoing_project
 {
     class Terrorist
     {
-        public enum weapon
-        {
-            knife,
-            gun,
-            ak47,
-            m16
-        }
-
-        public enum location
-        {
-            Building,
-            Vehicle,
-            OpenSpace
-        }
-
         private static int IdCounter = 1;
         private int Id;
         private string TerroristName;

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace An_ongoing_project
 {
-    internal class Enun
+    public enum weapon
     {
+        knife,
+        gun,
+        ak47,
+        m16
+    }
+
+    public enum location
+    {
+        Building,
+        Vehicle,
+        OpenSpace
     }
 }

@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static An_ongoing_project.Terrorist;
 
 namespace An_ongoing_project
 {
     internal class Weapon : ITypesOfAttack
     {
         public string Name { get; set; }
-        public List<string> EffectiveAgainst { get; set; }
+        public location EffectiveAgainst { get; set; }
         public int NumberOfBombs { get; set; }
         public int FuelQuantity { get; set; }
 
-        public Weapon(string Name, List<string>EffectiveAgainst, int NumberOfBombs, int FuelQuantity)
+        public Weapon(string Name, location effectiveAgainst, int NumberOfBombs, int FuelQuantity)
         {
             this.Name = Name;
-            this.EffectiveAgainst = EffectiveAgainst;
+            this.EffectiveAgainst = effectiveAgainst;
             this.NumberOfBombs = NumberOfBombs;
             this.FuelQuantity = FuelQuantity;
         }
@@ -37,7 +38,7 @@ namespace An_ongoing_project
     internal class f16 : Weapon
     {
 
-        public f16(): base("F16", new List<string> { "Buildings" }, 8, 100) { }
+        public f16(): base("F16", location.Building, 8, 100) { }
         
 
 
@@ -45,13 +46,13 @@ namespace An_ongoing_project
     internal class drone : Weapon
     {
 
-        public drone(): base("drone", new List<string> { "people", "vehicle" }, 3, 60) { }
+        public drone(): base("drone", location.Vehicle, 3, 60) { }
         
     }
     internal class artillery : Weapon
     {
 
-        public artillery(): base("artillery", new List<string> { "Open spaces" }, 40, 50) { }
+        public artillery(): base("artillery", location.OpenSpace, 40, 50) { }
         
     }
 }
