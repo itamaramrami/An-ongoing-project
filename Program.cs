@@ -22,6 +22,7 @@ namespace An_ongoing_project
             Hamas.SetNewTerrorist(terrorist2);
 
             Console.WriteLine(Aman.GetTerroristHighestScore().GetTerroristName());
+            Console.WriteLine("ggg");
         }
     }
 }
