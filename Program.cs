@@ -23,8 +23,7 @@ namespace An_ongoing_project
             IDFUnit helHiam = new IDFUnit("helHiam", "10,02,1960", helHiam1);
 
 
-
-            GenerateRandomTerrorists(10);
+            Terrorist.GenerateRandomTerrorists(10);
 
             Console.WriteLine("=== All Hamas Terrorists ===\n");
 
@@ -34,41 +33,6 @@ namespace An_ongoing_project
                 Console.WriteLine("Weapons: " + string.Join(", ", terrorist.GetTerroristWeapons()));
                 Console.WriteLine(new string('-', 50));
             }
-
-            
-
-
-            Console.WriteLine($"\nTotal terrorists in Hamas: {Hamas.GetHamasTerrorists().Count}");
-
-            helHiam.attack();
-            helHiam.attack();
-        }
-
-
-        static void GenerateRandomTerrorists(int count)
-        {
-            Random rand = new Random();
-
-            string[] sampleNames = { "Ali", "Khaled", "Omar", "Yusuf", "Hassan", "Samir", "Nabil", "Fadi", "Tariq", "Jamal" };
-            Array weaponValues = Enum.GetValues(typeof(weapon));
-            Array locationValues = Enum.GetValues(typeof(location));
-
-            for (int i = 0; i < count; i++)
-            {
-                string name = sampleNames[rand.Next(sampleNames.Length)];
-                int rank = rand.Next(1, 6);
-                var loc = (location)locationValues.GetValue(rand.Next(locationValues.Length));
-
-                var weaponCount = rand.Next(1, 4);
-                var weapons = new HashSet<weapon>();
-                while (weapons.Count < weaponCount)
-                {
-                    weapons.Add((weapon)weaponValues.GetValue(rand.Next(weaponValues.Length)));
-                }
-
-                new Terrorist(name, rank, new List<weapon>(weapons), loc);
-            }
-           
         }
         
 

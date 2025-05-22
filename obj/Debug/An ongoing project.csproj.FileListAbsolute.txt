@@ -1,0 +1,7 @@
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\bin\Debug\An ongoing project.exe.config
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\bin\Debug\An ongoing project.exe
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\bin\Debug\An ongoing project.pdb
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.csproj.AssemblyReference.cache
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.csproj.CoreCompileInputs.cache
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.exe
+C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.pdb
