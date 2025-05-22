@@ -34,8 +34,6 @@ namespace An_ongoing_project
                 Console.WriteLine(new string('-', 50));
             }
         }
-        
-
     }
     
 }
