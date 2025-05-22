@@ -18,15 +18,67 @@ namespace An_ongoing_project
     internal class IDFUnit
     {
         private string name; // שם החטיבה
-        private DateTime DateOfEstablishment; // תאריך הקמה
-        private List<ITypesOfAttack> WeaponsArsenal; // רשימה עבור כל הנשקים של החטיבה
+        private string DateOfEstablishment; // תאריך הקמה
+        private List<Weapon> WeaponsArsenal; // רשימה עבור כל הנשקים של החטיבה
 
-        public IDFUnit(string name , DateTime DateOfEstablishment,List<ITypesOfAttack> WeaponsArsenal)
+        public IDFUnit(string name , string DateOfEstablishment,List<Weapon> WeaponsArsenal)
         {
             this.name = name;
             this.DateOfEstablishment = DateOfEstablishment;
             this.WeaponsArsenal = WeaponsArsenal;
         }
+        public void attack()
+        {
+            Terrorist heighstTerrorist = Aman.GetTerroristHighestScore();
+            if (heighstTerrorist.GetLocation() == location.Building)
+            {
+               if (WeaponsArsenal[0].IsAvailable())
+                {
+                    WeaponsArsenal[0].bombing();
+                    heighstTerrorist.KillTerrorist();
+                    Console.WriteLine("The attack was carried out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("The attack is not available.");
+                }
+
+            }
+            if (heighstTerrorist.GetLocation() == location.Vehicle)
+            {
+               if (WeaponsArsenal[1].IsAvailable())
+                {
+                    WeaponsArsenal[1].bombing();
+                    heighstTerrorist.KillTerrorist();
+
+                    Console.WriteLine("The attack was carried out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("The attack is not available.");
+                }
+
+            }
+            if (heighstTerrorist.GetLocation() == location.OpenSpace)
+            {
+               if (WeaponsArsenal[2].IsAvailable())
+                {
+                    WeaponsArsenal[2].bombing();
+                    heighstTerrorist.KillTerrorist();
+
+                    Console.WriteLine("The attack was carried out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("The attack is not available.");
+                }
+
+            }
+        }
+
+
+
+
 
     }
 }
