@@ -16,23 +16,17 @@ namespace An_ongoing_project
           
             List <Weapon> helHiam1 = new List<Weapon>();
             helHiam1.Add(m1);
-       
-            
             helHiam1.Add(d1);
             helHiam1.Add(a1);
             IDFUnit helHiam = new IDFUnit("helHiam", "10,02,1960", helHiam1);
 
+            Terrorist.GenerateRandomTerrorists(15);
 
-            Terrorist.GenerateRandomTerrorists(10);
-
-            Console.WriteLine("=== All Hamas Terrorists ===\n");
-
-            foreach (Terrorist terrorist in Hamas.GetHamasTerrorists())
-            {
-                Console.WriteLine($"ID: {terrorist.GetId()}, Name: {terrorist.GetTerroristName()}, Rank: {terrorist.GetTerroristRank()}, Alive: {terrorist.IsTerroristAlive()}, Location: {terrorist.GetLocation()}");
-                Console.WriteLine("Weapons: " + string.Join(", ", terrorist.GetTerroristWeapons()));
-                Console.WriteLine(new string('-', 50));
+            Aman.PrintHamasStatus();
+            for (int i = 0; i < Aman.GetHamasTerrorists().Count + 1; i ++) {
+                helHiam.attack();
             }
+            Aman.PrintHamasStatus();
         }
     }
     
