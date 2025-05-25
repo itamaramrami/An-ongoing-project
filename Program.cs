@@ -74,7 +74,10 @@ namespace An_ongoing_project
                 else if (userChoice == 3)
                 {
                     Terrorist highestTerrorist = Aman.GetTerroristHighestScore();
-                    Console.WriteLine($"The highest terrorist is {highestTerrorist.GetTerroristName()} with id: {highestTerrorist.GetId()}");
+                    if (highestTerrorist != null)
+                    {
+                        Console.WriteLine($"The highest terrorist is {highestTerrorist.GetTerroristName()} with id: {highestTerrorist.GetId()}");
+                    }
                 }
                 else if (userChoice == 4)
                 {
@@ -90,7 +93,7 @@ namespace An_ongoing_project
                         }
                         else
                         {
-                            Console.WriteLine($"Invalid input, enter a number between 1 to the sum of terrorists. ({Aman.GetHamasTerrorists().Count})");
+                            Console.WriteLine($"Invalid input, enter a number between 1 to the sum of terrorists ({Aman.GetHamasTerrorists().Count}).");
                         }
                     } while (!int.TryParse(input, out idTerroristIdToKill) || idTerroristIdToKill <= 0 || idTerroristIdToKill > Aman.GetHamasTerrorists().Count);
                 }
