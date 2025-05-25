@@ -32,7 +32,7 @@ namespace An_ongoing_project
         }
         public List<weapon> GetTerroristWeapons() => this.TerroristWeapons;
         private static int GenerateNewId() => IdCounter++;
-         public static void GenerateRandomTerrorists(int count)
+        public static void GenerateRandomTerrorists(int count)
         {
             Random rand = new Random();
 
@@ -57,7 +57,7 @@ namespace An_ongoing_project
             }
         }
 
-        public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons,location location, bool isAlive = true)
+        public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons, location location, bool isAlive = true)
         {
             this.Id = GenerateNewId();
             this.TerroristName = terroristName;
