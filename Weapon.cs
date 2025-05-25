@@ -38,21 +38,21 @@ namespace An_ongoing_project
     internal class f16 : Weapon
     {
 
-        public f16(): base("F16", location.Building, 8, 100) { }
-        
+        public f16() : base("F16", location.Building, 8, 100) { }
+
 
 
     }
     internal class drone : Weapon
     {
 
-        public drone(): base("drone", location.Vehicle, 3, 60) { }
-        
+        public drone() : base("drone", location.Vehicle, 3, 60) { }
+
     }
     internal class artillery : Weapon
     {
 
-        public artillery(): base("artillery", location.OpenSpace, 40, 50) { }
-        
+        public artillery() : base("artillery", location.OpenSpace, 40, 50) { }
+
     }
 }

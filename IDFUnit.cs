@@ -7,11 +7,12 @@ using static An_ongoing_project.Terrorist;
 
 namespace An_ongoing_project
 {
-    public interface ITypesOfAttack {
+    public interface ITypesOfAttack
+    {
         string Name { get; set; }
         int NumberOfBombs { get; set; }
         int FuelQuantity { get; set; }
-        
+
         bool IsAvailable();
         location EffectiveAgainst { get; set; }
     }
@@ -21,22 +22,42 @@ namespace An_ongoing_project
         private string DateOfEstablishment; // תאריך הקמה
         private List<Weapon> WeaponsArsenal; // רשימה עבור כל הנשקים של החטיבה
 
-        public IDFUnit(string name , string DateOfEstablishment,List<Weapon> WeaponsArsenal)
+        public IDFUnit(string name, string DateOfEstablishment, List<Weapon> WeaponsArsenal)
         {
             this.name = name;
             this.DateOfEstablishment = DateOfEstablishment;
             this.WeaponsArsenal = WeaponsArsenal;
+            IDF.AddDivision(this);
+
         }
+        public string getname()
+        {
+            return this.name;
+        }
+        public string getstablishment()
+        {
+            return this.DateOfEstablishment;
+        }
+        public void WeaponsAvailable()
+        {
+            foreach (Weapon item in WeaponsArsenal)
+            {
+                Console.WriteLine($"Name: {item.Name}, Bombs: {item.NumberOfBombs}, Fuel: {item.FuelQuantity}");
+            }
+        }
+
+
         public void attack()
         {
             Terrorist heighstTerrorist = Aman.GetTerroristHighestScore();
             if (heighstTerrorist.GetLocation() == location.Building)
             {
-               if (WeaponsArsenal[0].IsAvailable())
+                if (WeaponsArsenal[0].IsAvailable())
                 {
                     WeaponsArsenal[0].bombing();
                     heighstTerrorist.KillTerrorist();
-                    Console.WriteLine("The attack was carried out successfully.");
+                    Console.WriteLine($"The terrorist: id:{heighstTerrorist.GetId()} name:{heighstTerrorist.GetTerroristName()} Bombed by:{WeaponsArsenal[0].Name}" +
+                        $" The remaining weapons: Bombs:{WeaponsArsenal[0].NumberOfBombs} fuel:{WeaponsArsenal[0].FuelQuantity}");
                 }
                 else
                 {
@@ -46,12 +67,13 @@ namespace An_ongoing_project
             }
             if (heighstTerrorist.GetLocation() == location.Vehicle)
             {
-               if (WeaponsArsenal[1].IsAvailable())
+                if (WeaponsArsenal[1].IsAvailable())
                 {
                     WeaponsArsenal[1].bombing();
                     heighstTerrorist.KillTerrorist();
 
-                    Console.WriteLine("The attack was carried out successfully.");
+                    Console.WriteLine($"The terrorist: id:{heighstTerrorist.GetId()} name:{heighstTerrorist.GetTerroristName()} Bombed by:{WeaponsArsenal[1].Name}" +
+                                  $" The remaining weapons: Bombs:{WeaponsArsenal[1].NumberOfBombs} fuel:{WeaponsArsenal[1].FuelQuantity}");
                 }
                 else
                 {
@@ -61,12 +83,13 @@ namespace An_ongoing_project
             }
             if (heighstTerrorist.GetLocation() == location.OpenSpace)
             {
-               if (WeaponsArsenal[2].IsAvailable())
+                if (WeaponsArsenal[2].IsAvailable())
                 {
                     WeaponsArsenal[2].bombing();
                     heighstTerrorist.KillTerrorist();
 
-                    Console.WriteLine("The attack was carried out successfully.");
+                    Console.WriteLine($"The terrorist: id:{heighstTerrorist.GetId()} name:{heighstTerrorist.GetTerroristName()} Bombed by:{WeaponsArsenal[2].Name}" +
+                         $" The remaining weapons: Bombs:{WeaponsArsenal[2].NumberOfBombs} fuel:{WeaponsArsenal[2].FuelQuantity}");
                 }
                 else
                 {
