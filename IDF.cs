@@ -25,25 +25,25 @@ namespace An_ongoing_project
                 divis.WeaponsAvailable();
             }
         }
-        public static void CreatingDivisions(int number)
-        {
-            List<string> attackingForces = new List<string>
-        {
-            "חיל רגלים",
-            "חיל שריון",
-            "חיל הנדסה קרבית",
-            "חיל האוויר",
-            "חיל הים",
-            "חיל התותחנים",
-            "סיירות מובחרות",
-            "חיל מודיעין קרבי"
-        };
-            for (int i =0; i<number; i++)
-            {
-                int randomIndex = rnd.Next(7); 
-                string randomName = attackingForces[randomIndex];
-                IDFUnit randomName  = new IDFUnit(randomName, "10,03,1960", hel);
-            }
-        }
+        //public static void CreatingDivisions(int number)
+        //{
+        //    List<string> attackingForces = new List<string>
+        //{
+        //    "חיל רגלים",
+        //    "חיל שריון",
+        //    "חיל הנדסה קרבית",
+        //    "חיל האוויר",
+        //    "חיל הים",
+        //    "חיל התותחנים",
+        //    "סיירות מובחרות",
+        //    "חיל מודיעין קרבי"
+        //};
+        //    for (int i =0; i<number; i++)
+        //    {
+        //        int randomIndex = rnd.Next(7); 
+        //        string randomName = attackingForces[randomIndex];
+        //        IDFUnit randomName  = new IDFUnit(randomName, "10,03,1960", hel);
+        //    }
+        //}
     }
 }
