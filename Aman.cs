@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static An_ongoing_project.Terrorist;
 
 namespace An_ongoing_project
 {
     static class Aman
     {
-        private static List<Terrorist> allTerrorist = Hamas.GetHamasTerrorists();
+        private static List<Terrorist> allTerrorists = Hamas.GetHamasTerrorists();
 
         private static int GetTerroristGrade(Terrorist terrorist)
         {
@@ -43,7 +39,7 @@ namespace An_ongoing_project
             int mostScore = 0;
             Terrorist terroristHighestScore = null;
 
-            foreach (Terrorist terrorist in allTerrorist)
+            foreach (Terrorist terrorist in allTerrorists)
             {
                 if (terrorist.IsTerroristAlive())
                 {
@@ -64,7 +60,7 @@ namespace An_ongoing_project
 
             return terroristHighestScore;
         }
-        public static List<Terrorist> GetHamasTerrorists() => allTerrorist;
+        public static List<Terrorist> GetHamasTerrorists() => allTerrorists;
 
         public static void PrintHamasStatus()
         {
@@ -100,7 +96,7 @@ namespace An_ongoing_project
 
         public static Terrorist GetTerroristById(int id)
         {
-            foreach (Terrorist terrorist in allTerrorist)
+            foreach (Terrorist terrorist in allTerrorists)
             {
                 if(terrorist.GetId() == id)
                 {

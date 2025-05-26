@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 
 namespace An_ongoing_project
 {
@@ -18,18 +17,20 @@ namespace An_ongoing_project
             helHiam1.Add(a1);
             IDFUnit helHiam = new IDFUnit("helHiam", "10,02,1960", helHiam1);
 
-            Console.WriteLine("Welcome to 8200 system!\n");
+            Console.WriteLine("=== Welcome to 8200 system! ===\n");
 
+            bool validInput;
             int amountOfTerrorists;
             string amountOfTerroristsInput;
             do
             {
                 Console.Write("Please enter the amount of terrorists: ");
                 amountOfTerroristsInput = Console.ReadLine();
+                validInput = int.TryParse(amountOfTerroristsInput, out amountOfTerrorists) && amountOfTerrorists > 0 && amountOfTerrorists < 21;
 
-                if (int.TryParse(amountOfTerroristsInput, out amountOfTerrorists) && amountOfTerrorists > 0 && amountOfTerrorists < 21)
+                if (validInput)
                 {
-                    Console.WriteLine($"Creating {amountOfTerrorists} terrorists..");
+                    Console.WriteLine($"Creating {amountOfTerrorists} terrorists...");
                     Terrorist.GenerateRandomTerrorists(amountOfTerrorists);
                 }
                 else
@@ -37,28 +38,28 @@ namespace An_ongoing_project
                     Console.WriteLine("Invalid input, please enter a number between 1-20.");
                 }
 
-            } while (!int.TryParse(amountOfTerroristsInput, out amountOfTerrorists) || amountOfTerrorists < 1 || amountOfTerrorists > 20);
+            } while (!validInput);
 
             while (true)
             {
                 string input;
                 int userChoice;
-
                 do
                 {
                     Console.WriteLine("\tEnter 1 to show all terrorist");
                     Console.WriteLine("\tEnter 2 to show all IDF units");
                     Console.WriteLine("\tEnter 3 to show the most wanted terrorist");
                     Console.WriteLine("\tEnter 4 to kill terrorist by id");
+                    Console.WriteLine("\tEnter 5 to kill the wanted terrorist");
                     Console.WriteLine("\tEnter 0 to exit.");
                     input = Console.ReadLine();
-
-                    if (!int.TryParse(input, out userChoice) || userChoice < 0 || userChoice > 4)
+                    validInput = int.TryParse(input, out userChoice) && userChoice >= 0 && userChoice < 6;
+                    if (!validInput)
                     {
                         Console.WriteLine("Invalid input, please enter one of the options.");
                     }
 
-                } while (!int.TryParse(input, out userChoice) || userChoice < 0 || userChoice > 4);
+                } while (!validInput);
 
                 if (userChoice == 0)
                     break;
@@ -81,21 +82,30 @@ namespace An_ongoing_project
                 }
                 else if (userChoice == 4)
                 {
-                    int idTerroristIdToKill;
+                    int terroristIdToKill;
                     do
                     {
                         Console.WriteLine("Enter terrorist id to kill: ");
                         input = Console.ReadLine();
-                        if (int.TryParse(input, out idTerroristIdToKill) && idTerroristIdToKill > 0 && idTerroristIdToKill <= Aman.GetHamasTerrorists().Count)
+                        validInput = int.TryParse(input, out terroristIdToKill) && terroristIdToKill > 0 && terroristIdToKill <= Aman.GetHamasTerrorists().Count;
+                        if (validInput)
                         {
-                            Terrorist terroristToKill = Aman.GetTerroristById(idTerroristIdToKill);
+                            Terrorist terroristToKill = Aman.GetTerroristById(terroristIdToKill);
                             helHiam.attack(terroristToKill);
                         }
                         else
                         {
-                            Console.WriteLine($"Invalid input, enter a number between 1 to the sum of terrorists ({Aman.GetHamasTerrorists().Count}).");
+                            Console.WriteLine($"Invalid input, enter a number between 1 to the sum of terrorists ({Aman.GetHamasTerrorists().Count} terrorists at all).");
                         }
-                    } while (!int.TryParse(input, out idTerroristIdToKill) || idTerroristIdToKill <= 0 || idTerroristIdToKill > Aman.GetHamasTerrorists().Count);
+                    } while (!validInput);
+                }
+                else if (userChoice == 5)
+                {
+                    Terrorist highestTerrorist = Aman.GetTerroristHighestScore();
+                    if (highestTerrorist != null)
+                    {
+                        helHiam.attack(highestTerrorist);
+                    }
                 }
             }
             Console.WriteLine("Have a nice day!");
