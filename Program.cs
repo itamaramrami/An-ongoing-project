@@ -70,7 +70,7 @@ namespace An_ongoing_project
                 }
                 else if (userChoice == 2)
                 {
-                    //function to show all IDF units
+                    IDF.AllDivisions();
                 }
                 else if (userChoice == 3)
                 {

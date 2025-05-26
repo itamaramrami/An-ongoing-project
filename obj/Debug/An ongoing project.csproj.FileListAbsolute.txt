@@ -5,3 +5,11 @@ C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing proje
 C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.csproj.CoreCompileInputs.cache
 C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.exe
 C:\Users\Studies\kodcode\kodCodeIdf\IDFVsHamasProject\obj\Debug\An ongoing project.pdb
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\bin\Debug\An ongoing project.exe.config
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\bin\Debug\An ongoing project.exe
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\bin\Debug\An ongoing project.pdb
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\obj\Debug\An ongoing project.csproj.AssemblyReference.cache
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\obj\Debug\An ongoing project.exe.config
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\obj\Debug\An ongoing project.csproj.CoreCompileInputs.cache
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\obj\Debug\An ongoing project.exe
+C:\Users\IMOE001\Source\Repos\An-ongoing-project\obj\Debug\An ongoing project.pdb
