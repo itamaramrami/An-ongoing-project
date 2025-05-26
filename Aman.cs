@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static An_ongoing_project.Terrorist;
 
 namespace An_ongoing_project
 {
     static class Aman
     {
-        private static List<Terrorist> allTerrorist = Hamas.GetHamasTerrorists();
+        private static List<Terrorist> allTerrorists = Hamas.GetHamasTerrorists();
 
         private static int GetTerroristGrade(Terrorist terrorist)
         {
@@ -43,7 +39,7 @@ namespace An_ongoing_project
             int mostScore = 0;
             Terrorist terroristHighestScore = null;
 
-            foreach (Terrorist terrorist in allTerrorist)
+            foreach (Terrorist terrorist in allTerrorists)
             {
                 if (terrorist.IsTerroristAlive())
                 {
@@ -64,18 +60,52 @@ namespace An_ongoing_project
 
             return terroristHighestScore;
         }
-        public static List<Terrorist> GetHamasTerrorists() => allTerrorist;
+
+        public static List<Terrorist> GetHamasTerrorists() => allTerrorists;
 
         public static void PrintHamasStatus()
         {
+            var terrorists = Aman.GetHamasTerrorists();
+
             Console.WriteLine("=== All Hamas Terrorists ===\n");
 
-            foreach (Terrorist terrorist in Aman.GetHamasTerrorists())
+            Console.WriteLine("{0,-4} | {1,-10} | {2,-4} | {3,-5} | {4,-12} | {5}",
+                              "ID", "Name", "Rank", "Alive", "Location", "Weapons");
+            Console.WriteLine(new string('-', 80));
+
+            foreach (Terrorist terrorist in terrorists)
             {
-                Console.WriteLine($"ID: {terrorist.GetId()}, Name: {terrorist.GetTerroristName()}, Rank: {terrorist.GetTerroristRank()}, Alive: {terrorist.IsTerroristAlive()}, Location: {terrorist.GetLocation()}");
-                Console.WriteLine("Weapons: " + string.Join(", ", terrorist.GetTerroristWeapons()));
-                Console.WriteLine(new string('-', 50));
+                string id = terrorist.GetId().ToString();
+                string name = terrorist.GetTerroristName();
+                string rank = terrorist.GetTerroristRank().ToString();
+                bool isAliveBool = terrorist.IsTerroristAlive();
+                string location = terrorist.GetLocation().ToString();
+                string weapons = string.Join(", ", terrorist.GetTerroristWeapons());
+
+                Console.Write("{0,-4} | {1,-10} | {2,-4} | ", id, name, rank);
+
+                if (isAliveBool)
+                    Console.ForegroundColor = ConsoleColor.Green;
+                else
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.Write("{0,-5}", isAliveBool ? "Yes" : "No");
+                Console.ResetColor();
+                Console.Write(" | {0,-12} | {1}\n", location, weapons);
             }
+        }
+
+        public static Terrorist GetTerroristById(int id)
+        {
+            foreach (Terrorist terrorist in allTerrorists)
+            {
+                if(terrorist.GetId() == id)
+                {
+                    return terrorist;
+                }
+            }
+            Console.WriteLine("Terrorist not found.");
+            return null;
         }
     }
 }

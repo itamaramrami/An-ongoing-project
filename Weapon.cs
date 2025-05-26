@@ -30,9 +30,6 @@ namespace An_ongoing_project
             this.NumberOfBombs -= 1;
             this.FuelQuantity -= 20;
         }
-
-
-
     }
 
     internal class f16 : Weapon

@@ -47,16 +47,15 @@ namespace An_ongoing_project
         }
 
 
-        public void attack()
+        public void attack(Terrorist terroristToKill)
         {
-            Terrorist heighstTerrorist = Aman.GetTerroristHighestScore();
-            if (heighstTerrorist.GetLocation() == location.Building)
+            if (terroristToKill.GetLocation() == location.Building)
             {
                 if (WeaponsArsenal[0].IsAvailable())
                 {
                     WeaponsArsenal[0].bombing();
-                    heighstTerrorist.KillTerrorist();
-                    Console.WriteLine($"The terrorist: id:{heighstTerrorist.GetId()} name:{heighstTerrorist.GetTerroristName()} Bombed by:{WeaponsArsenal[0].Name}" +
+                    terroristToKill.KillTerrorist();
+                    Console.WriteLine($"The terrorist: id:{terroristToKill.GetId()} name:{terroristToKill.GetTerroristName()} Bombed by:{WeaponsArsenal[0].Name}" +
                         $" The remaining weapons: Bombs:{WeaponsArsenal[0].NumberOfBombs} fuel:{WeaponsArsenal[0].FuelQuantity}");
                 }
                 else
@@ -65,14 +64,14 @@ namespace An_ongoing_project
                 }
 
             }
-            if (heighstTerrorist.GetLocation() == location.Vehicle)
+            if (terroristToKill.GetLocation() == location.Vehicle)
             {
                 if (WeaponsArsenal[1].IsAvailable())
                 {
                     WeaponsArsenal[1].bombing();
-                    heighstTerrorist.KillTerrorist();
+                    terroristToKill.KillTerrorist();
 
-                    Console.WriteLine($"The terrorist: id:{heighstTerrorist.GetId()} name:{heighstTerrorist.GetTerroristName()} Bombed by:{WeaponsArsenal[1].Name}" +
+                    Console.WriteLine($"The terrorist: id:{terroristToKill.GetId()} name:{terroristToKill.GetTerroristName()} Bombed by:{WeaponsArsenal[1].Name}" +
                                   $" The remaining weapons: Bombs:{WeaponsArsenal[1].NumberOfBombs} fuel:{WeaponsArsenal[1].FuelQuantity}");
                 }
                 else
@@ -81,14 +80,14 @@ namespace An_ongoing_project
                 }
 
             }
-            if (heighstTerrorist.GetLocation() == location.OpenSpace)
+            if (terroristToKill.GetLocation() == location.OpenSpace)
             {
                 if (WeaponsArsenal[2].IsAvailable())
                 {
                     WeaponsArsenal[2].bombing();
-                    heighstTerrorist.KillTerrorist();
+                    terroristToKill.KillTerrorist();
 
-                    Console.WriteLine($"The terrorist: id:{heighstTerrorist.GetId()} name:{heighstTerrorist.GetTerroristName()} Bombed by:{WeaponsArsenal[2].Name}" +
+                    Console.WriteLine($"The terrorist: id:{terroristToKill.GetId()} name:{terroristToKill.GetTerroristName()} Bombed by:{WeaponsArsenal[2].Name}" +
                          $" The remaining weapons: Bombs:{WeaponsArsenal[2].NumberOfBombs} fuel:{WeaponsArsenal[2].FuelQuantity}");
                 }
                 else

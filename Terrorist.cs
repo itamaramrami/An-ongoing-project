@@ -32,7 +32,7 @@ namespace An_ongoing_project
         }
         public List<weapon> GetTerroristWeapons() => this.TerroristWeapons;
         private static int GenerateNewId() => IdCounter++;
-         public static void GenerateRandomTerrorists(int count)
+        public static void GenerateRandomTerrorists(int count)
         {
             Random rand = new Random();
 
@@ -42,22 +42,22 @@ namespace An_ongoing_project
 
             for (int i = 0; i < count; i++)
             {
-                string name = sampleNames[rand.Next(sampleNames.Length)];
-                int rank = rand.Next(1, 6);
-                var loc = (location)locationValues.GetValue(rand.Next(locationValues.Length));
+                string randomName = sampleNames[rand.Next(sampleNames.Length)];
+                int randomRank = rand.Next(1, 6);
+                location randomLocation = (location)locationValues.GetValue(rand.Next(locationValues.Length));
 
-                var weaponCount = rand.Next(1, 5);
-                var weapons = new HashSet<weapon>();
-                while (weapons.Count < weaponCount)
+                int weaponCount = rand.Next(1, 5);
+                List<weapon> randomWeapons = new List<weapon>();
+                while (randomWeapons.Count < weaponCount)
                 {
-                    weapons.Add((weapon)weaponValues.GetValue(rand.Next(weaponValues.Length)));
+                    randomWeapons.Add((weapon)weaponValues.GetValue(rand.Next(weaponValues.Length)));
                 }
 
-                new Terrorist(name, rank, new List<weapon>(weapons), loc);
+                new Terrorist(randomName, randomRank, new List<weapon>(randomWeapons), randomLocation);
             }
         }
 
-        public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons,location location, bool isAlive = true)
+        public Terrorist(string terroristName, int terroristRanke, List<weapon> terroristWeapons, location location, bool isAlive = true)
         {
             this.Id = GenerateNewId();
             this.TerroristName = terroristName;
