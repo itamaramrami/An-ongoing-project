@@ -55,8 +55,7 @@ namespace An_ongoing_project
                 {
                     WeaponsArsenal[0].bombing();
                     terroristToKill.KillTerrorist();
-                    Console.WriteLine($"The terrorist: id:{terroristToKill.GetId()} name:{terroristToKill.GetTerroristName()} Bombed by:{WeaponsArsenal[0].Name}" +
-                        $" The remaining weapons: Bombs:{WeaponsArsenal[0].NumberOfBombs} fuel:{WeaponsArsenal[0].FuelQuantity}");
+                    Console.WriteLine($"Bombed by: {WeaponsArsenal[0].Name}. The remaining weapons: Bombs: {WeaponsArsenal[0].NumberOfBombs} fuel: {WeaponsArsenal[0].FuelQuantity}");
                 }
                 else
                 {
@@ -71,8 +70,7 @@ namespace An_ongoing_project
                     WeaponsArsenal[1].bombing();
                     terroristToKill.KillTerrorist();
 
-                    Console.WriteLine($"The terrorist: id:{terroristToKill.GetId()} name:{terroristToKill.GetTerroristName()} Bombed by:{WeaponsArsenal[1].Name}" +
-                                  $" The remaining weapons: Bombs:{WeaponsArsenal[1].NumberOfBombs} fuel:{WeaponsArsenal[1].FuelQuantity}");
+                    Console.WriteLine($"Bombed by: {WeaponsArsenal[1].Name}. The remaining weapons: Bombs: {WeaponsArsenal[1].NumberOfBombs} fuel: {WeaponsArsenal[1].FuelQuantity}");
                 }
                 else
                 {
@@ -87,8 +85,7 @@ namespace An_ongoing_project
                     WeaponsArsenal[2].bombing();
                     terroristToKill.KillTerrorist();
 
-                    Console.WriteLine($"The terrorist: id:{terroristToKill.GetId()} name:{terroristToKill.GetTerroristName()} Bombed by:{WeaponsArsenal[2].Name}" +
-                         $" The remaining weapons: Bombs:{WeaponsArsenal[2].NumberOfBombs} fuel:{WeaponsArsenal[2].FuelQuantity}");
+                    Console.WriteLine($"Bombed by: {WeaponsArsenal[2].Name}. The remaining weapons: Bombs: {WeaponsArsenal[2].NumberOfBombs} fuel: {WeaponsArsenal[2].FuelQuantity}");
                 }
                 else
                 {

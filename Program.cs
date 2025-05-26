@@ -51,7 +51,7 @@ namespace An_ongoing_project
                     Console.WriteLine("\tEnter 3 to show the most wanted terrorist");
                     Console.WriteLine("\tEnter 4 to kill terrorist by id");
                     Console.WriteLine("\tEnter 5 to kill the wanted terrorist");
-                    Console.WriteLine("\tEnter 0 to exit.");
+                    Console.WriteLine("\tEnter 0 to exit");
                     input = Console.ReadLine();
                     validInput = int.TryParse(input, out userChoice) && userChoice >= 0 && userChoice < 6;
                     if (!validInput)
