@@ -60,6 +60,7 @@ namespace An_ongoing_project
 
             return terroristHighestScore;
         }
+
         public static List<Terrorist> GetHamasTerrorists() => allTerrorists;
 
         public static void PrintHamasStatus()
