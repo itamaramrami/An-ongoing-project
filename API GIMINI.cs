@@ -12,9 +12,7 @@ namespace An_ongoing_project
     {
         public static async Task CallApiGemini()
         {
-            Console.WriteLine("=== Hey, I'm Gemini! ===");
-            Console.WriteLine("Ask me any question and i will answer you! ");
-            string promt = Console.ReadLine();
+            Console.WriteLine("=== Welcome to Gemini! ===");
             Env.Load();
             string apiKey = Environment.GetEnvironmentVariable("API_KEY");
 
@@ -24,7 +22,9 @@ namespace An_ongoing_project
                 return;
             }
 
-            string url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey;
+            Console.WriteLine("Ask me any question and i will answer you! ");
+            string promt = Console.ReadLine();
+            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={apiKey}";
 
             var requestBody = new
             {
@@ -42,21 +42,21 @@ namespace An_ongoing_project
 
             var json = JsonConvert.SerializeObject(requestBody);
 
-            var httpClient = new HttpClient();
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpClient httpClient = new HttpClient();
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
+                Console.WriteLine("Gemini thinking...");
                 var response = await httpClient.PostAsync(url, content);
                 var responseString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var parsed = JObject.Parse(responseString);
+                    JObject parsed = JObject.Parse(responseString);
                     string resultText = parsed["candidates"]?[0]?["content"]?["parts"]?[0]?["text"]?.ToString();
-
                     Console.WriteLine("Gemini Answer:");
-                    Console.WriteLine(resultText ?? "(No response text found)");
+                    Console.WriteLine(resultText ?? "(No response text found)\n");
                 }
                 else
                 {
