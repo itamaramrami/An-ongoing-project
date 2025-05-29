@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace An_ongoing_project
@@ -8,7 +9,6 @@ namespace An_ongoing_project
     {
         static async Task Main(string[] args)
         {
-            await ApiGemini.CallApiGemini();
             f16 m1 = new f16();
             drone d1 = new drone();
             artillery a1 = new artillery();
@@ -20,7 +20,6 @@ namespace An_ongoing_project
             IDFUnit helHiam = new IDFUnit("helHiam", "10,02,1960", helHiam1);
 
             Console.WriteLine("=== Welcome to 8200 system! ===\n");
-
             bool validInput;
             int amountOfTerrorists;
             string amountOfTerroristsInput;
@@ -53,9 +52,10 @@ namespace An_ongoing_project
                     Console.WriteLine("\tEnter 3 to show the most wanted terrorist");
                     Console.WriteLine("\tEnter 4 to kill terrorist by id");
                     Console.WriteLine("\tEnter 5 to kill the wanted terrorist");
+                    Console.WriteLine("\tEnter 6 to speake with Gemini");
                     Console.WriteLine("\tEnter 0 to exit");
                     input = Console.ReadLine();
-                    validInput = int.TryParse(input, out userChoice) && userChoice >= 0 && userChoice < 6;
+                    validInput = int.TryParse(input, out userChoice) && userChoice >= 0 && userChoice < 7;
                     if (!validInput)
                     {
                         Console.WriteLine("Invalid input, please enter one of the options.");
@@ -108,6 +108,11 @@ namespace An_ongoing_project
                     {
                         helHiam.attack(highestTerrorist);
                     }
+                }
+                else if (userChoice == 6)
+                {
+
+                    await ApiGemini.CallApiGemini();
                 }
             }
             Console.WriteLine("Have a nice day!");
