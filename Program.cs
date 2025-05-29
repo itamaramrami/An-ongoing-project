@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace An_ongoing_project
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            await ApiGemini.CallApiGemini();
             f16 m1 = new f16();
             drone d1 = new drone();
             artillery a1 = new artillery();
